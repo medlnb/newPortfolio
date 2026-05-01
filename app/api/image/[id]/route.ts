@@ -4,33 +4,32 @@ import Image from "@models/image";
 
 export const GET = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) => {
+  const { id } = await params;
+
   try {
     await connectToDatabase();
-    const imageId = params.id;
 
-    if (!imageId)
+    if (!id) {
       return new Response(JSON.stringify({ error: "No imageId provided" }), {
         status: 400,
       });
+    }
 
-    // Find the image in database
-    const image = await Image.findById(imageId);
+    const image = await Image.findById(id);
 
-    if (!image)
+    if (!image) {
       return new Response(JSON.stringify({ error: "Image not found" }), {
         status: 404,
       });
+    }
 
-    // Create a response with the image data
     return new Response(image.image, {
       status: 200,
       headers: {
         "Content-Type": image.mimeType,
         "Content-Length": image.image.length.toString(),
-        // Optional caching headers
-        // "Cache-Control": "public, max-age=31536000, immutable",
       },
     });
   } catch (err) {
@@ -41,11 +40,11 @@ export const GET = async (
 
 export const PATCH = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+ { params }: { params: Promise<{ id: string }> }
 ) => {
   try {
     await connectToDatabase();
-    const imageId = params.id;
+    const { id:imageId } = await params;
 
     if (!imageId)
       return new Response(JSON.stringify({ error: "No imageId provided" }), {
