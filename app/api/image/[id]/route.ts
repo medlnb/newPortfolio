@@ -89,11 +89,11 @@ export const PATCH = async (
 
 export const DELETE = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+   { params }: { params: Promise<{ id: string }> }
 ) => {
   try {
     await connectToDatabase();
-    const imageId = params.id;
+    const { id:imageId } = await params;
 
     const imageDb = await Image.findByIdAndDelete(imageId);
     return new Response(JSON.stringify({ imageId: imageDb._id }), {
