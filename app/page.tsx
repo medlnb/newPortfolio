@@ -2,7 +2,6 @@
 import Image from "next/image";
 import SelfCard from "@/components/SelfCard";
 import worldMapBg from "@assets/worldMapBg.png";
-import fakeImg from "@assets/fakeImg.png";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaNodeJs, FaPython, FaDocker, FaGitAlt } from "react-icons/fa";
@@ -13,147 +12,7 @@ import { RiOpenaiFill } from "react-icons/ri";
 import { SiPostman } from "react-icons/si";
 import { SiNuxt } from "react-icons/si";
 import { GoCopilot } from "react-icons/go";
-
-const fakeDataProjects: Project[] = [
-  {
-    "_id":"66faa1551dba2deb68c8917b",
-    "title":"Teach",
-    "description":"Developed an educational platform enabling teachers to post subject-specific classes and conduct online meetings. Students can subscribe monthly for access to lessons and live sessions.",
-    "utils_data":["Next js",
-    "Tailwind",
-    "Mongodb",
-    "I18n"],
-    "img":"https://ibb.co/vd4rW6R",
-    "demo":"https://teach-five.vercel.app/en",
-    "presentation":["Responsible for any device",
-    "Invest in your education!",
-    "Get your support lessons at Home"],
-    "createdAt":"2024-09-30T13:02:13.886Z", 
-  },
-  {
-    "_id":"663542174d6ed34f1b88e71e",
-    "title":"AI Nexus Club",
-    "description":"AI Nexus is a student club dedicated to explore the fascinating world of artificial intelligence.",
-    "utils_data":["Next js",
-    "Tailwind",
-    "Mongodb"],
-    "img":"https://i.ibb.co/fX86hDv/Screenshot-from-2024-05-03-20-54-02.png",
-    "demo":"https://ai-nexus-club.vercel.app/",
-    "repository":"https://github.com/medlnb",
-    "presentation":["Responsible for any device",
-    "Join us and be part of the AI revolution!",
-    "Check out event and be part of it"],
-    "createdAt":"2024-05-03T19:59:19.646Z", 
-  },
-  {
-    "_id":"662fbe5339d157346f042486",
-    "title":"El-Semsar",
-    "description":"El-Semsar is An online platform where you can rent any property of your own, and manage the requests and resarvations",
-    "utils_data":["Next js",
-    "Tailwind",
-    "Mongodb"],
-    "img":"https://i.ibb.co/mH36qjY/Screenshot-from-2024-04-29-16-31-16.png",
-    "demo":"https://host-it-mu.vercel.app/",
-    "repository":"https://github.com/medlnb",
-    "presentation":["Easy to manage your place resarvations",
-    "Responsible for any device",
-    "Many options to filter your feed"],
-    "createdAt":"2024-04-29T15:35:47.931Z", 
-  },
-  {
-    "_id":"65f0d3ce32341221157bbcee",
-    "title":"Shopping",
-    "description":"Responsive e-commerce platform with an intuitive user experience. Includes a comprehensive admin panel for managing products, orders, and more. Features built-in translation support for a seamless multilingual experience. Designed for simplicity and efficiency, ensuring easy navigation for both customers and administrators.",
-    "utils_data":["React",
-    "HTML",
-    "TypeScript",
-    "TailWind",
-    "i18n"],
-    "img":"https://i.ibb.co/dwczjJx0/Screenshot-from-2025-03-18-21-15-01.png",
-    "demo":"https://shopping-hamma.vercel.app/en",
-    "presentation":["modern online store",
-    "Translation en/fr",
-    "Admin Dashboard",
-    "Next js , ts , TailWind, Mongodb, i18n"],
-    "createdAt":"2024-04-12T22:14:38.226Z", 
-  },
-  {
-    "_id":"65f0d58d32341221157bbcfc",
-    "title":"Student's Space",
-    "description":"Student's space is a platform designed for teachers to easily manage their classrooms, as well as handle student attendance and participation.",
-    "utils_data":["React",
-    "TypeScript",
-    "Mongodb"],
-    "img":"https://i.ibb.co/mh6fm74/Screenshot-from-2024-02-04-12-31-06.png",
-    "demo":"https://s-s-s.vercel.app",
-    "repository":"https://github.com/medlnb",
-    "presentation":["Better Than moodle",
-    "Very easy to use",
-    "Be always updated with Ur class"],
-    "createdAt":"2024-03-12T22:22:05.677Z", 
-  },
-  {
-    "_id":"65f0d55032341221157bbcfa",
-    "title":"Eisenhower Matrix",
-    "description":"An online tasks/notes manager with also a Eisenhower matrix tasks system than allow you to set the priority of your tasks.",
-    "utils_data":["React",
-    "HTML",
-    "JavaScript",
-    "Css",
-    "Mongodb"],
-    "img":"https://i.ibb.co/ckXrkVp/Screenshot-from-2024-11-22-19-11-54.png",
-    "demo":"https://eisenhower--matrix.vercel.app/",
-    "repository":"https://github.com/medlnb/Eisenhower-Matrix",
-    "presentation":["Make sure u take a deep look",
-    "Responsive for any device",
-    "React , js , Css, Mongodb"],
-    "createdAt":"2024-03-12T22:21:04.322Z", 
-  },
-  {
-    "_id":"65f0d4f632341221157bbcf8",
-    "title":"My Portfolio",
-    "description":"My personal portfolio project is a sleek and responsive website that highlights my skills and achievements as a front end developer, providing a visually appealing showcase of my work.",
-    "utils_data":["Next",
-    "TypeScript",
-    "Css",
-    "TailWind",
-    "Mongodb"],
-    "img":"https://i.ibb.co/D7ZmQ96/Screenshot-from-2023-07-26-14-54-37.png",
-    "repository":"https://github.com/medlnb",
-    "presentation":["Make sure u take a deep look",
-    "Responsive for any device",
-    "React , js , Css, Mongodb",
-    "Animation"],
-    "createdAt":"2024-03-12T22:19:34.652Z", 
-  },
-  {
-    "_id":"65f0d44132341221157bbcf4",
-    "title":"Todo list mobile",
-    "description":"Introducing our efficient online task management platform: Streamline your productivity with our user-friendly todo list website. Seamlessly organize, prioritize, and collaborate on tasks. Elevate your efficiency today!",
-    "utils_data":["React",
-    "HTML",
-    "JavaScript",
-    "Css",
-    "Mongodb"],
-    "img":"https://i.ibb.co/4TkM8TM/Screenshot-from-2023-07-26-14-56-24.png",
-    "demo":"https://todo-list-0.vercel.app",
-    "repository":"https://github.com/medlnb",
-    "presentation":["Access ur notes from anywhere",
-    "very easy to use",
-    "React , js , Css, Mongodb"],
-    "createdAt":"2024-03-12T22:16:33.331Z", 
-  },
-  {
-    "_id":"65f0d37b32341221157bbcec",
-    "title":"Restaurent Menu",
-    "description":"My graduation project Was about digitization of restaurants, Restaurent Menu was the modern menu that works on Android devices.",
-    "utils_data":["Android Studio",
-    "JavaFX",
-    "Xml",
-    "Css"],
-    "img":"https://i.ibb.co/94qQskp/ds.png",
-    "presentation":[],"createdAt":"2024-03-12T22:13:15.459Z", }
-]
+import Link from "next/link";
 
 interface Project {
   _id: string
@@ -232,19 +91,21 @@ export default function Home() {
     },
   ];
 
-  const [projects, setProjects] = useState<Project[]>([])
-  useEffect(()=>{
+  const [projects, setProjects] = useState<Project[]>()
+  useEffect(() => {
     const fetchProjects = async () => {
-      const res = await fetch("/api/project?limit=4")
-      if(!res.ok) return
-      
-      const data = await res.json()
-      setProjects(data)
-    }
-    // fetchProjects()
-    setProjects(fakeDataProjects.slice(0,4))
-  },[])
+      const res = await fetch("/api/project?limit=4");
+      if (!res.ok) return;
 
+      const data = await res.json();
+
+      setTimeout(() => {
+        setProjects(data);
+      }, 3000);
+    };
+
+    fetchProjects();
+  }, []);
   return (
     <main className="lg:flex items-start gap-20 pt-0 md:pt-30">
       <aside className="lg:sticky relative top-20 self-start">
@@ -366,31 +227,49 @@ export default function Home() {
           </div>
 
           <div>
-            {projects.map((ele) => (
-              <div
+            {!projects ? 
+            <div
+              className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
+            >
+              <div className="w-20 lg:w-30 overflow-hidden rounded-md bg-red-400 px-0.5 pt-2">
+                <div className="h-16 lg:h-24 loading--background"/>
+              </div>
+
+              <div className="flex-1 text-start">
+                <div className="h-5 w-20 loading--background rounded-lg mb-3"/>
+                <div className="h-4 w-40 loading--background rounded-lg"/>
+              </div>
+            </div>
+            :
+            projects.map((ele) => (
+              <Link
                 key={ele._id}
                 className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
+                href={ele.demo ?? '#'}
+                target="_blank"
               >
                 <div className="w-20 lg:w-30 overflow-hidden rounded-md bg-red-400 px-0.5 pt-2">
                   <Image
-                    src={fakeImg}
+                    src={`/api/image/${ele.img}`}
                     alt={ele.title}
                     width={200}
                     height={200}
-                    className="w-full rounded-t-sm"
+                    loading="eager"
+                    className="w-full rounded-t-sm h-16 lg:h-24"
                   />
                 </div>
 
                 <div className="flex-1 text-start">
-                  <h3 className="text-2xl font-bold">{ele.title}</h3>
-                  <h4 className="text-sm text-gray-400">
+                  <h3 className="text-lg md:text-2xl font-bold">{ele.title}</h3>
+                  <h4 className="text-xs md:text-sm text-gray-400">
                     {ele.utils_data.join(", ")}
                   </h4>
                 </div>
 
-                <ImArrowUpRight2 className="absolute top-5 right-5 text-red-500 transition-all duration-300 group-hover:top-2 group-hover:right-2" />
-              </div>
+                {ele.demo && <ImArrowUpRight2 className="text-sm md:text-lg absolute top-5 right-5 text-red-500 transition-all duration-300 group-hover:top-2 group-hover:right-2" />}
+              </Link>
             ))}
+
           </div>
    
         </motion.section>        
