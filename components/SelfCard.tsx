@@ -37,7 +37,7 @@ export default function SelfCard() {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-white p-8 lg:max-w-84">
       <Image src={hang} alt="Logo" width={194} className="absolute -top-8 right-1/2" />
-      <Image src={flame} alt="Logo" width={250} className="absolute bottom-32 -left-30" />
+      <Image src={flame} alt="Logo" width={250} className="absolute bottom-22 md:bottom-32 -left-30" />
 
       <Image
         src={selfPic}
@@ -46,11 +46,11 @@ export default function SelfCard() {
         className="mx-auto h-50 rounded-2xl bg-red-700 object-cover"
       />
 
-      <h2 className="pt-6 text-center text-3xl font-bold text-black">
+      <h2 className="pt-4 text-center text-3xl font-bold text-black">
         Lanabi Mohamed
       </h2>
 
-      <h3 className="pt-4 text-center text-xl font-bold text-gray-500 md:pt-24">
+      <h3 className="pt-4 text-center text-xl font-bold text-gray-500 md:pt-20">
         A Software Engineer who has developed countless innovative solutions.
       </h3>
 
