@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import SelfCard from "@/components/SelfCard";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,7 +33,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} h-full antialiased`}
     >
-      <body className="max-w-[1140px] mx-auto p-6 md:p-10 bg-[#151312]">{children}</body>
+      <body className="max-w-[1140px] mx-auto p-6 md:p-10 bg-[#151312]">
+        <main className="lg:flex items-start gap-20 pt-0 md:pt-30">
+          <aside className="lg:sticky relative top-20 self-start">
+            <SelfCard />
+          </aside>
+          <div className="flex-1 mt-26 lg:mt-0">
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
