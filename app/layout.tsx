@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import SelfCard from "@/components/SelfCard";
+import NavBar from "@components/NavBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
           <aside className="lg:sticky relative top-20 self-start">
             <SelfCard />
           </aside>
+          <NavBar />
           <div className="flex-1 mt-26 lg:mt-0">
             {children}
           </div>

@@ -29,11 +29,6 @@ export default function SelfCard() {
       icon: <MdEmail />,
       label: "Email",
     },
-    {
-      link: "https://www.figma.com/file/kM6G8u4jp614eaqWovQ3wS/Resume-(Copy)?type=design&node-id=0%3A1&mode=design&t=0YMghWM1ZyDr2ykN-1",
-      icon: <MdDescription />,
-      label: "Resume",
-    },
   ];
 
   return (
