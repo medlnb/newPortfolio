@@ -164,7 +164,7 @@ export default function Home() {
             <p className="text-gray-400 pb-4 px-4">
               Hello! I am Lanabi Mohamed, a versatile full stack developer proficient in
               front-end and back-end technologies, delivering scalable web applications
-              with expertise in JavaScript/TypeScript, Python, React and JavaFx.
+              with expertise in JavaScript/TypeScript, Python, React, Vue and JavaFx.
             </p>
 
             <div className="relative py-1">
@@ -274,7 +274,6 @@ export default function Home() {
    
         </motion.section>        
 
-        
         <motion.section
           initial={{ opacity: 0, y: -60 }}
           whileInView={{ opacity: 1, y: 0 }}
