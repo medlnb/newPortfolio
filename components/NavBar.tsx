@@ -1,27 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
-import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbFileDescription } from "react-icons/tb";
-import { FiGithub } from "react-icons/fi";
-import { CiLinkedin } from "react-icons/ci";
 import { motion } from "framer-motion";
 
-export default function SelfCard() {
+export default function NavBar() {
   const links = [
-    {
-      link: "https://www.instagram.com/thewintersoldier070/",
-      icon: <FaInstagram />,
-    },
-    {
-      link: "https://github.com/medlnb",
-      icon: <FiGithub />,
-    },
-    {
-      link: "https://www.linkedin.com/in/mohamed-lanabi-5a977327b/",
-      icon: <CiLinkedin />,
-    },
     {
       link: "mailto:mohamedlanabi0@gmail.com",
       icon: <MdOutlineEmail />,

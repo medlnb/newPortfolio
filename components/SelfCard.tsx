@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image";
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail, MdDescription } from "react-icons/md";
 import selfPic from "@assets/selfpic.png";
 import hang from "@assets/svg/hang.svg";
 import flame from "@assets/svg/flame.svg";
@@ -23,11 +22,6 @@ export default function SelfCard() {
       link: "https://www.linkedin.com/in/mohamed-lanabi-5a977327b/",
       icon: <FaLinkedin />,
       label: "LinkedIn",
-    },
-    {
-      link: "mailto:mohamedlanabi0@gmail.com",
-      icon: <MdEmail />,
-      label: "Email",
     },
   ];
 

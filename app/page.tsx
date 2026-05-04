@@ -12,12 +12,13 @@ import { SiPostman } from "react-icons/si";
 import { SiNuxt } from "react-icons/si";
 import { GoCopilot } from "react-icons/go";
 import Link from "next/link";
+import WorkForm from "@components/WorkForm";
 
 interface Project {
-  _id: string
+  _id: string;
   title: string;
   description: string;
-  utils_data: string[]; 
+  utils_data: string[];
   img: string;
   demo?: string;
   repository?: string;
@@ -28,23 +29,22 @@ interface Project {
 export default function Home() {
   const achievements = [
     {
-      key:"YEARS OF EXPERIENCE",
-      value:"+2"
+      key: "YEARS OF EXPERIENCE",
+      value: "+2",
     },
     {
-      key:"YEARS OF CODING",
-      value:"+6"
+      key: "YEARS OF CODING",
+      value: "+6",
     },
     {
-      key:"PROJECTS COMPLETED",
-      value:"+10"
+      key: "PROJECTS COMPLETED",
+      value: "+10",
     },
     {
-      key:"Curiosity",
-      value:"∞"
+      key: "Curiosity",
+      value: "∞",
     },
-    
-  ] 
+  ];
 
   const tools = [
     { label: "Node.js", icon: <FaNodeJs /> },
@@ -98,21 +98,22 @@ export default function Home() {
     {
       title: "Master 2 - Artificial intelligence & Data Science",
       description: "University Kasdi Merbah University - Ouargla",
-      date: "present"
+      date: "present",
     },
     {
       title: "the Fundamentals of Deep Learning certification ",
       description: "NVIDIA",
-      date: "2024"
+      date: "2024",
     },
     {
       title: "First Prize Programming_Competition",
-      description: "Secured first prize in the Programming Competition launched by Kasdi Merbah University, demonstrating exemplary coding skills and innovative problem-solving",
-      date: "2023"
-    },        
-  ]
+      description:
+        "Secured first prize in the Programming Competition launched by Kasdi Merbah University, demonstrating exemplary coding skills and innovative problem-solving",
+      date: "2023",
+    },
+  ];
 
-  const [projects, setProjects] = useState<Project[]>()
+  const [projects, setProjects] = useState<Project[]>();
   useEffect(() => {
     const fetchProjects = async () => {
       const res = await fetch("/api/project?limit=4");
@@ -133,7 +134,7 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="lg:text-start text-center"
       >
-        <div className="max-w-[35rem] lg:mx-0 mx-auto md:text-start text-center" >
+        <div className="max-w-[35rem] lg:mx-0 mx-auto md:text-start text-center">
           <h1 className="text-5xl md:text-8xl font-bold">
             SOFTWARE <span className="text-gray-700">ENGINEER</span>
           </h1>
@@ -144,18 +145,19 @@ export default function Home() {
         </div>
 
         <div className="flex md:justify-start flex-wrap justify-center gap-4 pt-18">
-          {achievements.map(ele=>(
+          {achievements.map((ele) => (
             <div key={ele.key} className="max-w-32">
-              <h1 className="text-5xl md:text-6xl font-semibold">{ele.value}</h1>
+              <h1 className="text-5xl md:text-6xl font-semibold">
+                {ele.value}
+              </h1>
               <h3 className="text-gray-500">{ele.key}</h3>
             </div>
           ))}
         </div>
-  
-      </motion.section>    
+      </motion.section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 py-10 pb-30">
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: -60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -168,9 +170,10 @@ export default function Home() {
           <h3 className="text-2xl pb-2 px-4">About me</h3>
 
           <p className="text-gray-400 pb-4 px-4">
-            Hello! I am Lanabi Mohamed, a versatile full stack developer proficient in
-            front-end and back-end technologies, delivering scalable web applications
-            with expertise in JavaScript/TypeScript, Python, React, Vue and JavaFx.
+            Hello! I am Lanabi Mohamed, a versatile full stack developer
+            proficient in front-end and back-end technologies, delivering
+            scalable web applications with expertise in JavaScript/TypeScript,
+            Python, React, Vue and JavaFx.
           </p>
 
           <div className="relative py-1">
@@ -186,10 +189,7 @@ export default function Home() {
               }}
             >
               {[...tools, ...tools].map((ele, i) => (
-                <div
-                  key={i}
-                  className="flex gap-2 items-center"
-                >
+                <div key={i} className="flex gap-2 items-center">
                   {ele.icon}
                   <p>{ele.label}</p>
                 </div>
@@ -198,22 +198,34 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <div className="hidden md:block"/>
+        <div className="hidden md:block" />
 
         <motion.section
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ delay: .6 ,duration: 0.5, ease: "easeOut" }}
+          transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
           className="relative overflow-hidden rounded-2xl col-span-2 md:col-span-1 h-40 md:h-full"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-[#18181b] via-[rgba(24,24,27,0.7)] to-transparent" />
-          <Image src={worldMapBg} alt="world Map Bg" height={200} className="w-full"/>
-          <div className="absolute inset-y-0 left-0 bg-red-500 animate-scan" style={{width: "1px"}}/>
+          <Image
+            src={worldMapBg}
+            alt="world Map Bg"
+            height={200}
+            className="w-full"
+          />
+          <div
+            className="absolute inset-y-0 left-0 bg-red-500 animate-scan"
+            style={{ width: "1px" }}
+          />
           <div className="absolute bottom-0 w-full p-2">
             <h1 className="font-semibold text-lg leading-tight">Algeria</h1>
-            <p className="text-sm text-gray-300 leading-tight">36.740824° N, 3.086464° E</p>
-            <h4 className="text-orange-500 text-sm"><span className="text-red-700">-</span> GMT +1</h4>
+            <p className="text-sm text-gray-300 leading-tight">
+              36.740824° N, 3.086464° E
+            </p>
+            <h4 className="text-orange-500 text-sm">
+              <span className="text-red-700">-</span> GMT +1
+            </h4>
           </div>
         </motion.section>
       </div>
@@ -225,7 +237,6 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="lg:text-start text-center"
       >
-                    
         <div className="max-w-[35rem] lg:mx-0 mx-auto md:text-start text-center mb-6">
           <h1 className="text-5xl md:text-8xl font-bold">
             RECENT <span className="text-gray-700">PROJECTS</span>
@@ -233,52 +244,51 @@ export default function Home() {
         </div>
 
         <div>
-          {!projects ? 
-          <div
-            className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
-          >
-            <div className="w-20 lg:w-30 overflow-hidden rounded-md bg-red-400 px-0.5 pt-2">
-              <div className="h-16 lg:h-24 loading--background"/>
-            </div>
-
-            <div className="flex-1 text-start">
-              <div className="h-5 w-20 loading--background rounded-lg mb-3"/>
-              <div className="h-4 w-40 loading--background rounded-lg"/>
-            </div>
-          </div>
-          :
-          projects.map((ele) => (
-            <Link
-              key={ele._id}
-              className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
-              href={ele.demo ?? '#'}
-              target="_blank"
-            >
+          {!projects ? (
+            <div className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900">
               <div className="w-20 lg:w-30 overflow-hidden rounded-md bg-red-400 px-0.5 pt-2">
-                <Image
-                  src={`/api/image/${ele.img}`}
-                  alt={ele.title}
-                  width={200}
-                  height={200}
-                  loading="eager"
-                  className="w-full rounded-t-sm h-16 lg:h-24"
-                />
+                <div className="h-16 lg:h-24 loading--background" />
               </div>
 
               <div className="flex-1 text-start">
-                <h3 className="text-lg md:text-2xl font-bold">{ele.title}</h3>
-                <h4 className="text-xs md:text-sm text-gray-400">
-                  {ele.utils_data.join(", ")}
-                </h4>
+                <div className="h-5 w-20 loading--background rounded-lg mb-3" />
+                <div className="h-4 w-40 loading--background rounded-lg" />
               </div>
+            </div>
+          ) : (
+            projects.map((ele) => (
+              <Link
+                key={ele._id}
+                className="group relative flex cursor-pointer items-center gap-4 rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
+                href={ele.demo ?? "#"}
+                target="_blank"
+              >
+                <div className="w-20 lg:w-30 overflow-hidden rounded-md bg-red-400 px-0.5 pt-2">
+                  <Image
+                    src={`/api/image/${ele.img}`}
+                    alt={ele.title}
+                    width={200}
+                    height={200}
+                    loading="eager"
+                    className="w-full rounded-t-sm h-16 lg:h-24"
+                  />
+                </div>
 
-              {ele.demo && <ImArrowUpRight2 className="text-sm md:text-lg absolute top-5 right-5 text-red-500 transition-all duration-300 group-hover:top-2 group-hover:right-2" />}
-            </Link>
-          ))}
+                <div className="flex-1 text-start">
+                  <h3 className="text-lg md:text-2xl font-bold">{ele.title}</h3>
+                  <h4 className="text-xs md:text-sm text-gray-400">
+                    {ele.utils_data.join(", ")}
+                  </h4>
+                </div>
 
+                {ele.demo && (
+                  <ImArrowUpRight2 className="text-sm md:text-lg absolute top-5 right-5 text-red-500 transition-all duration-300 group-hover:top-2 group-hover:right-2" />
+                )}
+              </Link>
+            ))
+          )}
         </div>
-  
-      </motion.section>        
+      </motion.section>
 
       <motion.section
         initial={{ opacity: 0, y: -60 }}
@@ -310,8 +320,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-  
-      </motion.section>  
+      </motion.section>
 
       <motion.section
         initial={{ opacity: 0, y: -60 }}
@@ -320,10 +329,9 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="lg:text-start text-center"
       >
-                    
         <div className="max-w-[35rem] lg:mx-0 mx-auto md:text-start text-center mb-6">
           <h1 className="text-5xl md:text-8xl font-bold">
-            CERTIFICATES  <span className="text-gray-700">REWARDS</span>
+            CERTIFICATES <span className="text-gray-700">REWARDS</span>
           </h1>
         </div>
 
@@ -331,7 +339,7 @@ export default function Home() {
           {certificates.map((ele) => (
             <div
               key={ele.title}
-              className="text-start md:text-center relative cursor-pointer rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
+              className="text-start relative cursor-pointer rounded-2xl lg:p-5 py-3 transition-colors duration-300 hover:bg-gray-900"
             >
               <h3 className="text-lg md:text-2xl font-bold">{ele.title}</h3>
               <h4 className="text-xs md:text-base text-gray-400 py-2">
@@ -342,9 +350,10 @@ export default function Home() {
               </h4>
             </div>
           ))}
-
         </div>
-      </motion.section>     
+      </motion.section>
+
+      <WorkForm />
     </div>
   );
 }
