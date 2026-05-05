@@ -1,7 +1,7 @@
 import { connectToDatabase } from "@utils/database";
 import Request from "@models/request";
 import { NextRequest } from "next/server";
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 export const POST = async (req: NextRequest) => {
   try {
