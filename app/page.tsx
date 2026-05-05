@@ -125,6 +125,7 @@ export default function Home() {
 
     fetchProjects();
   }, []);
+
   return (
     <div>
       <motion.section

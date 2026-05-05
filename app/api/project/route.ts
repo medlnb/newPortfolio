@@ -34,7 +34,6 @@ export const POST = async (req: NextRequest) => {
 
 export const GET = async (req: NextRequest) => {
   try {
-    console.log("testing")
     await connectToDatabase();
     const Url = new URL(req.url);
     const params = new URLSearchParams(Url.searchParams);
